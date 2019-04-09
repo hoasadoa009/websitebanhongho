@@ -19,14 +19,12 @@
 
                            $result =  mysqli_query($db, "select id_order from `order` ORDER BY date_created DESC LIMIT 1");
                            $id_order = mysqli_fetch_object($result)->id_order;
-                           var_dump($id_order);
                            foreach ($_SESSION['cart'] as $arr) { 
                                 $id_product = $arr['id_product'];
                                 $number = $arr['number'];
                                 $price = $arr['price'];
                                $sql2= "insert into `order_detail`(`id_order`, `id_product`, `quality`, `current_price`) values ('{$id_order}','{$id_product}','{$number}','{$price}')";
                                mysqli_query($db, $sql2);
-                               var_dump($sql2);
 
                            }
                            

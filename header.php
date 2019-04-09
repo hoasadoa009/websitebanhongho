@@ -43,9 +43,10 @@
                     <div class="topbar-right">
                         <ul class="topbar-nav clearfix">
                             <?php 
-                            echo '<pre>';
-                            print_r($_SESSION);
-                            echo '</pre>';                                if(!isset($_SESSION['name_customer'])){
+                            // echo '<pre>';
+                            // print_r($_SESSION);
+                            // echo '</pre>';                              
+                              if(!isset($_SESSION['name_customer'])){
 
                              ?>
                             <li><a href="checkout.php" class="login">Login</a></li>
