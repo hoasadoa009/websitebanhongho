@@ -1,0 +1,12 @@
+
+ <?php 
+	class controller_category_brand{
+		public $model;
+		public function __construct(){
+			$this->model=new model();
+			$arr=$this->model->get_all("select * from category_brand");
+			include 'view/frontend/view_category_brand.php';
+		}
+	}
+	new controller_category_brand();
+ ?>
