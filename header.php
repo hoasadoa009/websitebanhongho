@@ -8,7 +8,7 @@
     <meta name="author" content="">
     <link rel="shortcut icon" href="#">
 
-    <title>Galio</title>
+    <title>Galio | Shop đồng hồ Online</title>
     <link href="css/bootstrap.min.css" rel="stylesheet">
     <link href="css/nivo-slider.css" rel="stylesheet">
     <link href="css/animate.css" rel="stylesheet">
@@ -18,12 +18,13 @@
   <link rel="shortcut icon" type="image/png" href="./images/avatar/icon.png"/>
      
     <link href="css/cloud-zoom.css" rel="stylesheet">
-    <link href="css/style.css" rel="stylesheet">
     <link href="css/responsive.css" rel="stylesheet">
     <link href='http://fonts.googleapis.com/css?family=Open+Sans:300,300italic,400,400italic,600,600italic,700,700italic,800' rel='stylesheet' type='text/css'>
     <link href='http://fonts.googleapis.com/css?family=Oswald' rel='stylesheet' type='text/css'>
     <link href='http://fonts.googleapis.com/css?family=Raleway:400,700' rel='stylesheet' type='text/css'>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+
     <!--[if lt IE 9]>
       <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
       <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
@@ -43,19 +44,19 @@
                     <div class="topbar-right">
                         <ul class="topbar-nav clearfix">
                             <?php 
-                            // echo '<pre>';
-                            // print_r($_SESSION);
-                            // echo '</pre>';                              
+                            echo '<pre>';
+                            print_r($_SESSION);
+                            echo '</pre>';                              
                               if(!isset($_SESSION['name_customer'])){
 
                              ?>
-                            <li><a href="checkout.php" class="login">Login</a></li>
+                            <li><a href="checkout.php" class="login">Đăng nhập</a></li>
                         <?php 
                             }else{
                                   echo  "<li>Xin chào: ".$_SESSION['name_customer']."</li><a href='logout.php'>Đăng xuất</a>";
                                 }
                          ?>
-                            <li class="dropdown">
+                            <!-- <li class="dropdown">
                                 <a href="#" class="account dropdown-toggle" data-toggle="dropdown">My Account</a>
                                 <ul class="dropdown-menu dropdown-menu-right">
                                     <li><a title="My Account" href="account.html">My Account</a></li>
@@ -64,7 +65,7 @@
                                     <li><a title="Checkout" href="checkout.html">Checkout</a></li>
                                     <li><a title="Testimonial" href="testimonial.html">Testimonial</a></li>
                                 </ul>
-                            </li>
+                            </li> -->
                             <li class="dropdown">
                                 <a href="#" class="currency dropdown-toggle" data-toggle="dropdown">USD</a>
                                 <ul class="dropdown-menu dropdown-menu-right">
@@ -95,24 +96,24 @@
                                     <div class="col-sm-4">
                                         <div class="box-container time">
                                             <div class="box-inner">
-                                                <h2>working time</h2>
-                                                <p>Mon- Sun: 8.00 - 18.00</p>
+                                                <h2 style="font-size: 16px;">Thời gian làm việc</h2>
+                                                <p>T2- CN: 8.00 - 18.00</p>
                                             </div>
                                         </div>
                                     </div>
                                     <div class="col-sm-4">
                                         <div class="box-container free-shipping">
                                             <div class="box-inner">
-                                                <h2>Free shipping</h2>
-                                                <p>On order over $199</p>
+                                                <h2 style="font-size: 16px;">Miễn phí vận chuyển</h2>
+                                                <p>Áp dụng đơn hàng từ 199$</p>
                                             </div>
                                         </div>
                                     </div>
                                     <div class="col-sm-4">
                                         <div class="box-container money-back">
                                             <div class="box-inner">
-                                                <h2>Money back 100%</h2>
-                                                <p>Within 30 Days after delivery</p>
+                                                <h2 style="font-size: 16px;">Hoàn trả 100%</h2>
+                                                <p>Hoàn trả sau 30 ngày</p>
                                             </div>
                                         </div>
                                     </div>
@@ -120,44 +121,41 @@
                             </div><!-- /.support-client -->
                             <?php include "controller/frontend/controller_search.php" ?>
                             <div class="mini-cart">
+                                <?php 
+                                        $result_end1 = 0;
+                                         foreach ($_SESSION['cart'] as $arr) { 
+                                            $id_product = $arr['id_product'];
+                                            $number = $arr['number'];
+                                            $price = $arr['price'];
+                                            $sale = $arr['sale'];
+                                           $result_sale = ($price * $sale) / 100;
+                                           $result_end = ($price - $result_sale) * $number;
+                                           $result_end1 += $result_end;
+
+
+                                       }
+                                 ?>
                                 <div class="top-cart-title">
                                     <a href="cart.php?controller=cart" class="dropdown-toggle" data-toggle="dropdown">
                                         Giỏ hàng
-                                        <span class="price">$45.00</span>
+                                        <span class="price" >$ <?php echo $result_end1; ?></span>
                                     </a>
                                     <div class="dropdown-menu dropdown-menu-right">
                                         <div class="cart-listing">
-                                            <div class="media">
-                                                <div class="media-left"><a href="#"><img src="images/products/11.jpg" alt="" class="img-responsive"></a></div>
-                                                <div class="media-body">
-                                                    <button type="button" class="remove-cart-item" >&times;</button>
-                                                    <h4>Accumsan elit</h4>
-                                                    <div class="mini-cart-qty">Qty:2</div>
-                                                    <div class="mini-cart-price">$ 64.00</div>
-                                                </div>
-                                            </div>
-                                            <div class="media">
-                                                <div class="media-left"><a href="#"><img src="images/products/13.jpg" class="img-responsive" alt=""></a></div>
-                                                <div class="media-body">
-                                                    <button type="button" class="remove-cart-item" >&times;</button>
-                                                    <h4>Accumsan elit</h4>
-                                                    <div class="mini-cart-qty">Qty:2</div>
-                                                    <div class="mini-cart-price">$ 64.00</div>
-                                                </div>
-                                            </div>
-                                        </div><!-- /.cart-listing -->
+                                            <?php include "controller/frontend/controller_giohang.php" ?>
+                                        </div><!-- /.cart-listing --><!-- 
                                         <div class="mini-cart-subtotal">Shipping: <span class="price">$5.00</span></div>
-                                        <div class="mini-cart-subtotal">Total: <span class="price">$200.00</span></div>
+                                        <div class="mini-cart-subtotal">Total: <span class="price">$200.00</span></div> -->
                                         <div class="checkout-btn">
-                                            <a href="#" class="btn btn-default btn-md fwb">Thanh toán</a>
-                                            <a href="cart.php" class="btn btn-default btn-md fwb">Giỏ hàng</a>
+                                            <a href="#" class="btn btn-default btn-md fwb" data-toggle="modal" data-target="#exampleModal">Thanh toán</a>
+                                            <a href="cart.php?controller=cart" class="btn btn-default btn-md fwb">Giỏ hàng</a>
                                         </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </div>
-                    <div class="row">
+                    <div class="row" id="f-nav">
                         <div class="col-md-3">
                             <div class="mega-container visible-lg visible-md">
                                 <div class="navleft-container">
@@ -188,43 +186,10 @@
                         </div>
                         <div class="collapse navbar-collapse">
                             <ul class="nav navbar-nav">
-                                <li class="active"><a href="#">Home</a></li>
-                                <li class="dropdown">
-                                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">Computer <span class="fa fa-angle-down"></span></a>
-                                    <ul class="dropdown-menu">
-                                        <li><a href="#">Desktop PC</a></li>
-                                        <li><a href="#">Notebook</a></li>
-                                        <li><a href="#">Gaming</a></li>
-                                        <li><a href="#">Mouse &amp; Keyboard</a></li>
-                                    </ul>
+                                <li class="active"><a href="#" >GALIO</a>
+                                    
                                 </li>
-                                <li class="dropdown">
-                                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">Camera <span class="fa fa-angle-down"></span></a>
-                                    <ul class="dropdown-menu">
-                                        <li><a href="#">Walkera</a></li>
-                                        <li><a href="#">Fpv System &amp; Parts</a></li>
-                                        <li><a href="#">RC Cars &amp; Parts</a></li>
-                                        <li><a href="#">Helicopters &amp; Part</a></li>
-                                    </ul>
-                                </li>
-                                <li class="dropdown">
-                                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">Smart Phone <span class="fa fa-angle-down"></span></a>                                   <ul class="dropdown-menu">
-                                        <li><a href="#">Accessories for iPhone</a></li>
-                                        <li><a href="#">Accessories for iPad</a></li>
-                                        <li><a href="#">Accessories for Tablet PC</a></li>
-                                        <li><a href="#">Tablet PC</a></li>
-                                    </ul>
-                                </li>
-                                <li class="dropdown">
-                                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">Electtronic <span class="fa fa-angle-down"></span></a>
-                                    <ul class="dropdown-menu">
-                                        <li><a href="#">Batteries &amp; Chargers</a></li>
-                                        <li><a href="#">Headphone, Headset</a></li>
-                                        <li><a href="#">Home Audio</a></li>
-                                        <li><a href="#">Mp3 Player Accessories</a></li>
-                                    </ul>
-                                </li>
-                                <li><a href="#">New Arrivals</a></li>
+                                <?php include "controller/frontend/controller_category_product_responsive.php" ?>
                             </ul>
                         </div><!-- /.navbar-collapse -->
                     </div><!-- /.container -->

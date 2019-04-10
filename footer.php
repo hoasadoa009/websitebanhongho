@@ -218,7 +218,7 @@
                 });
                 /* latest-news slider */
                 $("#latest-news .owl").owlCarousel({
-                    autoPlay : false,
+                    autoPlay : true,
                     items : 1,
                     itemsDesktop : [1199,1],
                     itemsDesktopSmall : [991,1],
@@ -491,7 +491,10 @@
                         });
                     
                 });
+
+               
             });
         </script>
+        
     </body>
 </html>

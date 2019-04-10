@@ -23,8 +23,12 @@
                                 $id_product = $arr['id_product'];
                                 $number = $arr['number'];
                                 $price = $arr['price'];
+                                $sale = $arr['sale'];
                                $sql2= "insert into `order_detail`(`id_order`, `id_product`, `quality`, `current_price`) values ('{$id_order}','{$id_product}','{$number}','{$price}')";
                                mysqli_query($db, $sql2);
+                               $result_sale = ($price * $sale) / 100;
+                               $result_end = $price - $result_sale;
+                               var_dump($result_end);
 
                            }
                            
@@ -115,10 +119,25 @@
                     	
                     	<div class=" col-sm-4 col-md-4 col-lg-4 offset-8">
                         	<table class="table table-cart-total">
-                            	
+                            	<?php 
+                                    $result_end1 = 0;
+                                    foreach ($_SESSION['cart'] as $arr) { 
+                                        $id_product = $arr['id_product'];
+                                        $number = $arr['number'];
+                                        $price = $arr['price'];
+                                        $sale = $arr['sale'];
+                                       $result_sale = ($price * $sale) / 100;
+                                       $result_end = ($price - $result_sale) * $number;
+                                        $result_end1 += $result_end;
+                                    
+
+                                   }
+
+                                    
+                                 ?>
                             	<tr>
                                 	<td>Tổng tiền:</td>
-                                    <td class="text-right">$250.00</td>
+                                    <td class="text-right">$ <?php echo $result_end1; ?></td>
                                 </tr>
                             </table>
 							<div class="text-right">

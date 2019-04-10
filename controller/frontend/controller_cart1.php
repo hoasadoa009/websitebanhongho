@@ -56,7 +56,8 @@
 		            'img_product' => $product->img_product,
 		            'number' => 1,
 		            'price' => $product->price,
-		            'sale' => $product->sale
+		            'sale' => $product->sale,
+		            
 		        );
 		    }
 		}

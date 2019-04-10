@@ -32,5 +32,14 @@
 			$result = mysqli_query($db,$sql);
 			return mysqli_num_rows($result);
 		}
+		public function get_all_arr($sql){
+			global $db;
+			$result = mysqli_query($db,$sql);
+			$arr = array();
+			while($rows = mysqli_fetch_array($result))
+				$arr[] = $rows;
+			// $result = array_merge($array1, $array2);
+			return $arr['abc'] = $arr ;
+		}
 	}
  ?>
