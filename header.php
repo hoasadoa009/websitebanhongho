@@ -6,7 +6,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="">
     <meta name="author" content="">
-    <link rel="shortcut icon" href="#">
 
     <title>Galio | Shop đồng hồ Online</title>
     <link href="css/bootstrap.min.css" rel="stylesheet">
@@ -15,7 +14,7 @@
     <link href="css/owl.carousel.css" rel="stylesheet">
      <link href="css/jquery.bxslider.css" rel="stylesheet">
     <link href="css/jquery-ui.css" rel="stylesheet">
-  <link rel="shortcut icon" type="image/png" href="./images/avatar/icon.png"/>
+  <link rel="shortcut icon" type="image/png" href="./images/avatar/231a.png"/>
      
     <link href="css/cloud-zoom.css" rel="stylesheet">
     <link href="css/responsive.css" rel="stylesheet">
@@ -24,6 +23,7 @@
     <link href='http://fonts.googleapis.com/css?family=Raleway:400,700' rel='stylesheet' type='text/css'>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
     <link rel="stylesheet" type="text/css" href="css/style.css">
+    <link rel="stylesheet" href="css/style1.css" type="text/css">
 
     <!--[if lt IE 9]>
       <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
@@ -123,17 +123,17 @@
                             <div class="mini-cart">
                                 <?php 
                                         $result_end1 = 0;
-                                         foreach ($_SESSION['cart'] as $arr) { 
-                                            $id_product = $arr['id_product'];
-                                            $number = $arr['number'];
-                                            $price = $arr['price'];
-                                            $sale = $arr['sale'];
-                                           $result_sale = ($price * $sale) / 100;
-                                           $result_end = ($price - $result_sale) * $number;
-                                           $result_end1 += $result_end;
-
-
-                                       }
+                                         if (isset($_SESSION['cart'])) {
+                                             foreach ($_SESSION['cart'] as $arr) { 
+                                                $id_product = $arr['id_product'];
+                                                $number = $arr['number'];
+                                                $price = $arr['price'];
+                                                $sale = $arr['sale'];
+                                               $result_sale = ($price * $sale) / 100;
+                                               $result_end = ($price - $result_sale) * $number;
+                                               $result_end1 += $result_end;
+                                           }
+                                         }
                                  ?>
                                 <div class="top-cart-title">
                                     <a href="cart.php?controller=cart" class="dropdown-toggle" data-toggle="dropdown">

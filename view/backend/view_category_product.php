@@ -2,7 +2,7 @@
 	<div class="col-md-12">
 		<!-- card -->
 		<div style="margin:15px 0px">
-			<a href="admin.php?controller=add_edit_category_product&act=add" class="btn btn-primary">Add</a>
+			<a href="admin.php?controller=add_edit_category_product&act=add" class="btn btn-primary">Thêm mới</a>
 		</div>
 		<div class="card border-primary">
 			<div class="card card-header bg-primary text-white" style="padding:7px !important;">Danh mục sản phẩm</div>
@@ -25,8 +25,8 @@
 						
 						
 						<td >
-<a href="admin.php?controller=add_edit_category_product&act=edit&id=<?php echo $rows->id_category_product; ?>">Edit</a>&nbsp;&nbsp;
-<a onclick="return window.confirm('Are you sure?');" href="admin.php?controller=category_product&act=delete&id=<?php echo $rows->id_category_product; ?>">Delete</a>
+<a href="admin.php?controller=add_edit_category_product&act=edit&id=<?php echo $rows->id_category_product; ?>">Sửa</a>&nbsp;&nbsp;
+<a onclick="return window.confirm('Bạn có chắc muốn xóa không?');" href="admin.php?controller=category_product&act=delete&id=<?php echo $rows->id_category_product; ?>">Xóa</a>
 						</td>
 					</tr>
 				<?php } ?>

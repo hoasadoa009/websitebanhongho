@@ -1,5 +1,9 @@
-<?php foreach ($_SESSION['cart'] as $rows) {
+<?php 
+if (isset($_SESSION['cart'])) {
+	foreach ($_SESSION['cart'] as $rows) {
     ?>
+
+
 <div class="media">
                                                 <div class="media-left"><a href="#"><img src="public/frontend/<?php echo $rows['img_product'] ?>" alt="" class="img-responsive"></a></div>
                                                 <div class="media-body">
@@ -10,4 +14,4 @@
                                                 </div>
                                             </div>
                                             
-                                            <?php } ?>
+                                            <?php } }?>

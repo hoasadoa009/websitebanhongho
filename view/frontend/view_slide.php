@@ -1,15 +1,17 @@
 
 <div class="flexslider ma-nivoslider">
-                                
+                               
                             <div class="ma-loading"></div>
-                             <?php foreach ($arr as $rows) {
-                                 ?>
+                             
                             <div id="ma-inivoslider-banner7" class="slides">
-                              
-                                <img src="public/frontend/slide/<?php echo $rows->big_img ?>" class="dn" alt="" title="#banner7-caption1"  />                           
+                              <?php foreach ($arr as $rows) {
+                                 ?> 
+                                <img src="public/frontend/slide/<?php echo $rows->big_img ?>" class="dn" alt="" title="#banner7-caption1"  />   
+                                <?php } ?>                        
                             </div>
                      
-
+                            <?php foreach ($arr as $rows) {
+                                 ?> 
                             <div id="banner7-caption1" class="banner7-caption nivo-html-caption nivo-caption">
                                 <div class="timethai"></div>
                     
@@ -33,6 +35,6 @@
 
                             </div>                      
                              
-                          <?php } ?>
+                          <?php } ?>  
 
                         </div><!-- /.flexslider -->

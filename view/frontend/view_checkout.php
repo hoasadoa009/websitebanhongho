@@ -25,18 +25,19 @@
         }
     }
 ?>
- <div class="col-sm-6">
+ <div class="col-sm-6 formLogin">
                                                     <h4>Đăng nhập</h4>
                                                     <div class="line2 mtb20"></div>
                                                     <form method="POST">
                                                         
                                                         <div class="form-group">
                                                             <label class="control-label">Email address *</label>
-                                                            <input type="text" name="username" class="form-control">
+                                                            <input type="text" name="username" id="username" class="form-control">
                                                         </div>
-                                                        <div class="form-group">
+                                                        <div class="form-group password">
                                                             <label class="control-label">Password *</label>
-                                                            <input type="password" name="password" class="form-control">
+                                                            <input type="password" name="password" id="Mypassword" class="form-control">
+                                                            <span id="eyePassword" onclick="myFunction()"><i class="fa fa-eye" aria-hidden="true"></i></span>
                                                         </div>
                                                         <!-- <p><a href="#">Forgot your password?</a></p> -->
                                                         <div class="form-group">

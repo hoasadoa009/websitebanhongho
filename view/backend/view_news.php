@@ -2,7 +2,7 @@
 	<div class="col-md-12">
 		<!-- card -->
 		<div style="margin:15px 0px">
-			<a href="admin.php?controller=add_edit_news&act=add" class="btn btn-primary">Add</a>
+			<a href="admin.php?controller=add_edit_news&act=add" class="btn btn-primary">Thêm mới</a>
 		</div>
 		<div class="card border-primary">
 			<div class="card card-header bg-primary text-white" style="padding:7px !important;">Tin tức</div>
@@ -39,8 +39,8 @@
 						<td><?php echo $rows->date_news; ?></td>
 
 						<td style="text-align: center;">
-<a href="admin.php?controller=add_edit_news&act=edit&id=<?php echo $rows->id_news; ?>">Edit</a>&nbsp;&nbsp;
-<a onclick="return window.confirm('Are you sure?');" href="admin.php?controller=news&act=delete&id=<?php echo $rows->id_news; ?>">Delete</a>
+<a href="admin.php?controller=add_edit_news&act=edit&id=<?php echo $rows->id_news; ?>">Sửa</a>&nbsp;&nbsp;
+<a onclick="return window.confirm('Bạn có chắc muốn xóa không?');" href="admin.php?controller=news&act=delete&id=<?php echo $rows->id_news; ?>">Xóa</a>
 						</td>
 					</tr>
 				<?php } ?>

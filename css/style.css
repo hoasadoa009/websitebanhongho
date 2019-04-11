@@ -2823,7 +2823,9 @@ a:focus {
 .step-content {
     padding: 30px 0;
 }
-
+.step-content #password{
+    background: red;
+}
 
 
 /* 404 Page */

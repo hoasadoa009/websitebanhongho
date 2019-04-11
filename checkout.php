@@ -28,7 +28,7 @@
                                     <div id="checkout-one" class="collapse in">
                                     	<div class="step-content">
                                             <div class="row">
-                                                <div class="col-sm-6">
+                                                <div class="col-sm-6 formLogin">
                                                     <h4>Đăng kí thành viên</h4>
                                                     <div class="line2 mtb20"></div>
                                                     

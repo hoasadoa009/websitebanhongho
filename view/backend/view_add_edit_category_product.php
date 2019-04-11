@@ -2,7 +2,7 @@
 	<div class="col-md-12">
 		<!-- card -->		
 		<div class="card  border-primary">
-			<div class="card card-header bg-primary text-white">Add edit category product</div>
+			<div class="card card-header bg-primary text-white">Thêm mới danh mục sản phẩm</div>
 			<div class="card-body">
 			<!-- neu muon upload duoc file, phai co thuoc tinh enctype="multipart/form-data" -->
 				<form method="post" enctype="multipart/form-data" action="<?php echo $form_action; ?>">
@@ -22,7 +22,7 @@
 						<div class="row">
 							<div class="col-md-2 text-right"></div>
 							<div class="col-md-10">
-								<input type="submit" value="Process" class="btn btn-primary"> <input type="reset" value="Reset" class="btn btn-danger">
+								<input type="submit" value="Hoàn tất" class="btn btn-primary"> <input type="reset" value="Reset" class="btn btn-danger">
 							</div>
 						</div>
 					</div>

@@ -1,0 +1,10 @@
+.step-content .formLogin .password{
+    position: relative;
+}
+.step-content .formLogin .password span{
+    position: absolute;
+    top: 50%;
+    right: 0;
+    cursor: pointer;
+    padding: 0 12px;
+}

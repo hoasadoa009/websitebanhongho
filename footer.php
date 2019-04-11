@@ -494,6 +494,16 @@
 
                
             });
+
+            // ẩn hiện mật khẩu
+            function myFunction() {
+              var x = document.getElementById("Mypassword");
+              if (x.type === "password") {
+                x.type = "text";
+              } else {
+                x.type = "password";
+              }
+            }
         </script>
         
     </body>

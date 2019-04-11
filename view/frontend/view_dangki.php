@@ -48,9 +48,10 @@
         <label class="control-label">Tài khoản<sup>*</sup></label>
         <input type="text" class="form-control" name="txttaikhoan"   placeholder="Nhập vào tên tài khoản ...">
     </div>
-    <div class="form-group">
+    <div class="form-group password">
         <label class="control-label">Mật khẩu<sup>*</sup></label>
-        <input type="password" class="form-control" name="txtmatkhau"   placeholder="Nhập vào mật khẩu ...">
+        <input type="password" class="form-control" name="txtmatkhau"  id="Mypassword" placeholder="Nhập vào mật khẩu ...">
+        <span id="eyePassword" onclick="myFunction()"><i class="fa fa-eye" aria-hidden="true"></i></span>
     </div>
     <div class="form-group">
         <label class="control-label">Địa chỉ<sup>*</sup></label>
