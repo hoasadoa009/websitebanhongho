@@ -140,6 +140,7 @@
             </div>
         </div><!-- /.footer -->
         
+    
         <script src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
         <!-- Latest compiled and minified JS -->
         <!-- <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script> -->
@@ -150,6 +151,7 @@
         <script src="js/cloud-zoom.js"></script>
         <script src="js/jquery-ui.min.js"></script>
         <script src="js/main.js"></script>
+        
         <script type="text/javascript">
             /* Main Slideshow */
             $(window).load(function() {

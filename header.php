@@ -31,7 +31,75 @@
     <![endif]-->
   </head>
   <body>
-  
+  <?php 
+                   
+                    if(isset($_POST['submit'])){
+                        
+                        
+                        if(isset($_SESSION['cart'])){
+                            $diachi = $_POST['txtdiachi'];
+                            $sodienthoai = $_POST['txtsdt'];
+                            // var_dump($_POST);
+                            $sql = "insert into `order` (address_customer, phone_customer, id_customer)values ('{$diachi}','{$sodienthoai}','{$_SESSION['id_customer']}')";
+                            mysqli_query($db, $sql);
+
+                           $result =  mysqli_query($db, "select id_order from `order` ORDER BY date_created DESC LIMIT 1");
+                           $id_order = mysqli_fetch_object($result)->id_order;
+                           foreach ($_SESSION['cart'] as $arr) { 
+                                $id_product = $arr['id_product'];
+                                $number = $arr['number'];
+                                $price = $arr['price'];
+                                $sale = $arr['sale'];
+                               $sql2= "insert into `order_detail`(`id_order`, `id_product`, `quality`, `current_price`) values ('{$id_order}','{$id_product}','{$number}','{$price}')";
+                               mysqli_query($db, $sql2);
+                               $result_sale = ($price * $sale) / 100;
+                               $result_end = $price - $result_sale;
+                               
+                               
+
+                           }
+                           
+                           
+
+
+                        }
+                    }
+                        
+                   ?>
+     <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+              <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Thông tin khách hàng</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                      <span aria-hidden="true">&times;</span>
+                    </button>
+                  </div>
+
+                  <div class="modal-body">
+                    <form method="post" action="">
+                        <div class="form-group">
+                            <label>Tên khách hàng</label>
+                            <input type="text" name="txtten" class="form-control" placeholder="Nhập vào họ tên" value="<?php echo $_SESSION['name_customer']; ?>" />
+                        </div>
+                        <div class="form-group">
+                            <label>Địa chỉ</label>
+                            <input type="text" name="txtdiachi" class="form-control" placeholder="Nhập vào số địa chỉ" value="<?php echo $_SESSION['address']; ?>" />
+                        </div>
+                        <div class="form-group">
+                            <label>Số điện thoại</label>
+                            <input type="text" name="txtsdt" class="form-control" placeholder="Nhập vào số điện thoại" value="<?php echo $_SESSION['phone']; ?>" />
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Đóng</button>
+                            <button type="submit" name="submit" value="huynh" class="btn btn-primary">Hoàn tất</button>
+                          </div>
+                    </form>
+                  </div>
+                  
+                </div>
+              </div>
+            </div>
         <div class="header">
             <div class="topbar">
                 <div class="container">
@@ -44,13 +112,13 @@
                     <div class="topbar-right">
                         <ul class="topbar-nav clearfix">
                             <?php 
-                            echo '<pre>';
-                            print_r($_SESSION);
-                            echo '</pre>';                              
+                            // echo '<pre>';
+                            // print_r($_SESSION);
+                            // echo '</pre>';                              
                               if(!isset($_SESSION['name_customer'])){
 
                              ?>
-                            <li><a href="checkout.php" class="login">Đăng nhập</a></li>
+                            <li><a id="login" href="checkout.php" class="login">Đăng nhập</a></li>
                         <?php 
                             }else{
                                   echo  "<li>Xin chào: ".$_SESSION['name_customer']."</li><a href='logout.php'>Đăng xuất</a>";
@@ -76,8 +144,8 @@
                             <li class="dropdown">
                                 <a href="#" class="language dropdown-toggle" data-toggle="dropdown"><img src="images/flag-us.png" alt=""> English</a>
                                 <ul class="dropdown-menu dropdown-menu-right">
-                                    <li><a href="#"><img src="images/flag-us.png" alt=""> &nbsp;English</a></li>
-                                    <li><a href="#"><img src="images/flag-spain.png" alt=""> &nbsp;Spanish</a></li>
+                                    <li><a onclick="setLanguage('en')" href="#"><img src="images/flag-us.png" alt=""> &nbsp;English</a></li>
+                                    <li><a onclick="setLanguage('vn')" href="#"><img src="images/flag-spain.png" alt=""> &nbsp;Tiếng việt</a></li>
                                 </ul>
                             </li>
                         </ul>
@@ -96,7 +164,7 @@
                                     <div class="col-sm-4">
                                         <div class="box-container time">
                                             <div class="box-inner">
-                                                <h2 style="font-size: 16px;">Thời gian làm việc</h2>
+                                                <h2 id="workingtime" style="font-size: 16px;">Thời gian làm việc</h2>
                                                 <p>T2- CN: 8.00 - 18.00</p>
                                             </div>
                                         </div>
@@ -104,7 +172,7 @@
                                     <div class="col-sm-4">
                                         <div class="box-container free-shipping">
                                             <div class="box-inner">
-                                                <h2 style="font-size: 16px;">Miễn phí vận chuyển</h2>
+                                                <h2 id="freeShip" style="font-size: 16px;">Miễn phí vận chuyển</h2>
                                                 <p>Áp dụng đơn hàng từ 199$</p>
                                             </div>
                                         </div>
@@ -112,7 +180,7 @@
                                     <div class="col-sm-4">
                                         <div class="box-container money-back">
                                             <div class="box-inner">
-                                                <h2 style="font-size: 16px;">Hoàn trả 100%</h2>
+                                                <h2 id="return" style="font-size: 16px;">Hoàn trả 100%</h2>
                                                 <p>Hoàn trả sau 30 ngày</p>
                                             </div>
                                         </div>
@@ -136,7 +204,7 @@
                                          }
                                  ?>
                                 <div class="top-cart-title">
-                                    <a href="cart.php?controller=cart" class="dropdown-toggle" data-toggle="dropdown">
+                                    <a  href="cart.php?controller=cart" class="dropdown-toggle" data-toggle="dropdown">
                                         Giỏ hàng
                                         <span class="price" >$ <?php echo $result_end1; ?></span>
                                     </a>
@@ -159,7 +227,7 @@
                         <div class="col-md-3">
                             <div class="mega-container visible-lg visible-md">
                                 <div class="navleft-container">
-                                    <div class="mega-menu-title"><h3>Danh mục</h3></div>
+                                    <div class="mega-menu-title"><h3 id="category">Danh mục</h3></div>
                                     <div class="mega-menu-category">
                                         <?php include "controller/frontend/controller_category_brand.php" ?>
                                         

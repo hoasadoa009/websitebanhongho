@@ -83,16 +83,7 @@
 									
                                     <p class="availability in-stock">Tồn kho: <span><?php echo $arr->quality ?> sản phẩm</span></p>
                                     <form class="form-horizontal">
-                                        <div class="form-group">
-                                            <label class="col-md-2 col-sm-3 control-label">Size <em>*</em></label>
-                                            <div class="col-sm-7">
-                                                <select class="form-control">
-                                                    <option value="">-- Please Select --</option>
-                                                    <option value="2">L +$2.00</option>
-                                                    <option value="1">M +$1.00</option>
-                                                </select>
-                                            </div>
-                                        </div>
+                                        
                                         <div class="form-group">
                                             <label class="col-md-2 col-sm-3 control-label">Color <em>*</em></label>
                                             <div class="col-sm-7">
@@ -111,7 +102,7 @@
                                                     <span class="input-group-btn">
                                                         <button class="btn" type="button">-</button>
                                                     </span>
-                                                    <input type="text" class="form-control" value="3">
+                                                    <input type="text" class="form-control" value="1">
                                                     <span class="input-group-btn">
                                                         <button class="btn" type="button">+</button>
                                                     </span>

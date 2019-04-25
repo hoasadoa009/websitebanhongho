@@ -66,11 +66,9 @@
                                         <h2>Color</h2>
                                         <div class="content-shopby">
                                             <ol>
-                                                <li><a href="#">Red</a></li>
-                                                <li><a href="#">Orange</a></li>
-                                                <li><a href="#">Blue</a></li>
+                                                <li><a href="#">White</a></li>
                                                 <li><a href="#">Black</a></li>
-                                                <li><a href="#">Green</a></li>
+                                                <li><a href="#">Yellow</a></li>
                                             </ol>
                                         </div>
                                     </div>

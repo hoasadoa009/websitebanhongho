@@ -1,7 +1,14 @@
-<?php 
-	$id=($_GET["id"]) ? $_GET["id"] : 0;
+ <?php 
+ if(isset($_GET['id'])){
+    $id=($_GET["id"]) ? $_GET["id"] : 0;
     // $key = ($_GET["search"]) ? $_GET["search"] : "";
-	 $arr = $this->model->get_all("select * from product where id_category_brand=$id or id_category_product=$id  ");
+     $arr = $this->model->get_all("select * from product where id_category_brand=$id or id_category_product=$id  ");
+ }
+ if (isset($_GET['search'])) {
+     $search = ($_GET['search']) ? $_GET['search'] : "";
+     $arr = $this->model->get_all("select * from product where name_product like '%{$search}%'");
+ }
+	
     
 	 foreach ($arr as $rows) {
 
@@ -22,7 +29,7 @@
                                                     <li><a href="#" class="link-quickview">Quick View</a></li>
                                                     <li><a href="#" class="link-wishlist">Add to Wishlist</a></li>
                                                     <li><a href="#" class="link-compare">Add to Compare</a></li>
-                                                    <li><a href="cart.php?id=<?php echo $rows->id_product ?>" class="link-cart">Add to Cart</a></li>
+                                                    <li><a href="cart.php?controller=cart&act=add&id=<?php echo $rows->id_product; ?>" class="link-cart">Add to Cart</a></li>
                                                 </ul>
                                             </div>
                                         </div>
